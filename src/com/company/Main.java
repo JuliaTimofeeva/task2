@@ -4,13 +4,23 @@ import java.util.ArrayList;
 
 public class Main {
 
+
+
     public static void main(String[] args) {
-	// write your code here
 
         ArrayList x = new ArrayList();
+        MyObject myObject = new MyObject();
+        myObject.one = 'f';
+        myObject.two = "hh";
+        myObject.three = 1;
+        Object j = 'f';
+
         x.add("Юля");
         x.add(5);
         x.add('a');
+        x.add(myObject);
+
+
         ArrayList y = new ArrayList();
         y.add(1);
         y.add("Юля");
@@ -20,29 +30,16 @@ public class Main {
         y.add(4);
         y.add('a');
 
-        int i = 0;
-        int j = 0;
-        int xSize = x.size();
-        int ySize = y.size();
-        boolean f;
-        int k = 0;
+        Sequnces sequnces = new Sequnces(x,y);
 
-        while (i<xSize){
-            f = false;
-            while ((j<ySize)&&(f==false)){
-                if (x.get(i).equals(y.get(j))){
-                    f = true;
-                    k++;
-                }
-                j++;
-            }
-            i++;
-        }
-        if(xSize == k)
+
+        if(sequnces.includeSequence())
         {
             System.out.print("Можно получить последовательность");
         }else{
             System.out.print("Нельзя получить последовательность");
         }
     }
+
 }
+
